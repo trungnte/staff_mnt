@@ -55,6 +55,8 @@ function validateNhanVien(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, 
 
 function themNV() {
     var taiKhoan = getELE("tknv").value;
+    getELE("tknv").disabled =  false;
+
     var hoTen = getELE("name").value;
     var email = getELE("email").value;
     var matKhau = getELE("password").value;
@@ -98,8 +100,16 @@ function themNV() {
     // isValid &= validation.checkRangeNumber(gioLam, "Số giờ làm trong tháng 80 - 200 giờ", "tbGiolam", 80, 200);
 
     isValid = validateNhanVien(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, chucVu, gioLam);
+    var isAccExisted = dsnv.timViTri(taiKhoan);
+    console.log("vi tri tai khoan moi: " + isAccExisted);
+    if(isAccExisted >= 0) {
+        document.getElementById("tbTKNV").innerHTML = "Tài khoản " + taiKhoan + " đã tồn tại";
+        document.getElementById("tbTKNV").style.display = "block";
+        return;
+    }
 
     if(isValid) {
+
         var nv = new NhanVien(taiKhoan, hoTen, email, ngayLam, chucVu, matKhau, luongCoBan, gioLam);
         nv.tinhTongLuong();
         nv.xepLoaiNhanVien();
