@@ -2,7 +2,7 @@ function Validation() {
     // thuoc tinh => luu du lieu, khong can tao o validation
 
     this.showLog = function(msgErr) {
-        console.log(msgErr);
+        // console.log(msgErr);
     }
 
     this.showNotification = function(spanID) {
