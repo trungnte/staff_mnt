@@ -114,5 +114,20 @@ function Validation() {
         return true;
     }
 
+    // mm/dd/yyyy
+    this.checkDate = function (valInput, msgErr, spanID) {
+        var pattern = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d(4)$/;
+        if(valInput.match(pattern)) {
+            // hop le
+            document.getElementById(spanID).innerHTML = "";
+            return true;
+        }
+        else {
+            document.getElementById(spanID).innerHTML = msgErr;
+            this.showLog(msgErr);
+            this.showNotification(spanID);
+            return false;
+        }
+    }
     
 }

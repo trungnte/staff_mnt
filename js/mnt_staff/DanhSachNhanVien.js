@@ -29,3 +29,19 @@ function DanhSachNhanVien() {
         }
     }
 }
+
+// input: loai can tim kiem
+DanhSachNhanVien.prototype.timKiemNV = function (tukhoaTimKiem) {
+    var mangKetQua = [];
+
+    var loaiTimKiem = tukhoaTimKiem.replace(/\s/g, "").toLowerCase();
+    console.log("loaiTimKiem: " + loaiTimKiem);
+    for(var i = 0; i < this.mangNV.length; i++) {
+        var loaiLowerCase = this.mangNV[i].xepLoai.replace(/\s/g, "").toLowerCase();
+        console.log("loaiLowerCase: " + loaiLowerCase);
+        if(loaiLowerCase.indexOf(loaiTimKiem) >= 0) {
+            mangKetQua.push(this.mangNV[i]);
+        }
+    }
+    return mangKetQua;
+}

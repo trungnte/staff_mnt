@@ -37,7 +37,7 @@ function validateNhanVien(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, 
 
     // + Ngày làm không để trống, định dạng mm/dd/yyyy
     isValid &= validation.checkEmpty(ngayLam, "Ngày làm không để trống", "tbNgay");
-    // TODO: check format date time!!!
+    isValid &= validation.checkDate(ngayLam, "Ngày làm không đúng định dạng mm/dd/yyyy", "tbNgay");
 
     // + Lương cơ bản 1 000 000 - 20 000 000, không để trống
     isValid &= validation.checkEmpty(luongCoBan, "Lương cơ bản không để trống", "tbLuongCB");
@@ -62,6 +62,8 @@ function themNV() {
     var luongCoBan = getELE("luongCB").value;
     var chucVu = getELE("chucvu").value;
     var gioLam = getELE("gioLam").value;
+
+    taiKhoan = taiKhoan.replace(/\s/g, "");
 
     var isValid = true;
     // // + Tài khoản tối đa 4 - 6 ký số, không để trống
@@ -199,4 +201,10 @@ function clearNotify() {
     getELE("tbLuongCB").style.display = "none";
     getELE("tbChucVu").style.display = "none";
     getELE("tbGiolam").style.display = "none";
+}
+
+function timKiemLoai() {
+    var inputLoai = document.getElementById("searchName").value;
+    var mangKetQua = dsnv.timKiemNV(inputLoai);
+    hienthiTable(mangKetQua);
 }
