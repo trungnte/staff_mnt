@@ -22,10 +22,10 @@ function DanhSachNhanVien() {
 
     this.capNhatNV = function(nvCapNhat) {
         var viTri = this.timViTri(nvCapNhat.taiKhoan);
-        console.log("CapNhatNV: vitri " + viTri);
+        // console.log("CapNhatNV: vitri " + viTri);
         if(viTri > -1) {
             dsnv.mangNV[viTri] = nvCapNhat;
-            console.log(dsnv.mangNV[viTri]);
+            // console.log(dsnv.mangNV[viTri]);
         }
     }
 }

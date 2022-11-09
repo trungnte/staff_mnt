@@ -101,7 +101,7 @@ function themNV() {
 
     isValid = validateNhanVien(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, chucVu, gioLam);
     var isAccExisted = dsnv.timViTri(taiKhoan);
-    console.log("vi tri tai khoan moi: " + isAccExisted);
+    // console.log("vi tri tai khoan moi: " + isAccExisted);
     if(isAccExisted >= 0) {
         document.getElementById("tbTKNV").innerHTML = "Tài khoản " + taiKhoan + " đã tồn tại";
         document.getElementById("tbTKNV").style.display = "block";
@@ -116,7 +116,7 @@ function themNV() {
 
         // Them nv vao mang
         dsnv.themNV(nv);
-        console.log(dsnv.mangNV);
+        // console.log(dsnv.mangNV);
 
         // hien thi table
         hienthiTable(dsnv.mangNV);
@@ -128,7 +128,7 @@ function themNV() {
 function hienthiTable(mangNV) {
     var content = "";
     mangNV.map(function(nv, index) {
-        console.log(nv);
+        // console.log(nv);
 
         content += `<tr>
                     <td>${nv.taiKhoan}</td>
@@ -156,7 +156,7 @@ function xoaNhanVien(taiKhoan) {
 function xemChiTiet (taiKhoan) {
     var viTri = dsnv.timViTri(taiKhoan);
     if(viTri > -1) {
-        console.log(dsnv.mangNV[viTri]);
+        // console.log(dsnv.mangNV[viTri]);
 
         getELE("tknv").value = dsnv.mangNV[viTri].taiKhoan;
         getELE("tknv").disabled =  true;
@@ -190,7 +190,7 @@ function capNhatNhanVien() {
         nvCapNhat.tinhTongLuong();
         nvCapNhat.xepLoaiNhanVien();
 
-        console.log(nvCapNhat);
+        // console.log(nvCapNhat);
 
         dsnv.capNhatNV(nvCapNhat);
 
