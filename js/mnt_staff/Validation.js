@@ -25,7 +25,8 @@ function Validation() {
 
     // tai khoan toi da 4-6 ky so
     this.checkAccount = function(valInput, msgErr, spanID) {
-        var pattern = /^(?=.*[^a-zA-Z0-9])(?!.*\s).{4,6}$/;
+        // var pattern = /^(?=.*[^a-z])(?=.*[^A-Z])(?=.*[^0-9])(?!.*\s).{4,6}$/;
+        var pattern = /^[a-zA-Z0-9]*(?!.*\s).{4,6}$/;
         if(valInput.match(pattern)) {
             // hop le
             document.getElementById(spanID).innerHTML = "";

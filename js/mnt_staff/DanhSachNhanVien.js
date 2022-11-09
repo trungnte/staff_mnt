@@ -12,4 +12,20 @@ function DanhSachNhanVien() {
         });
         return viTri;
     }
+
+    this.xoaNV = function(taiKhoan) {
+        var viTri = this.timViTri(taiKhoan);
+        if(viTri > -1) {
+            this.mangNV.splice(viTri, 1);
+        }
+    }
+
+    this.capNhatNV = function(nvCapNhat) {
+        var viTri = this.timViTri(nvCapNhat.taiKhoan);
+        console.log("CapNhatNV: vitri " + viTri);
+        if(viTri > -1) {
+            dsnv.mangNV[viTri] = nvCapNhat;
+            console.log(dsnv.mangNV[viTri]);
+        }
+    }
 }
